@@ -22,10 +22,25 @@ class linkedList {
         this.size++
     }
 
-}
+    traversing = () => {
+        let counter = 0;
+        let currentNode = this.head;
+        while (counter < this.size) {
+            console.log(currentNode);
+            currentNode = currentNode.next;
+            counter++
+        };
+    };
+};
 
 
-let newLinedList = new linkedList(200);
-newLinedList.appendNode(300);
+let newLinedList = new linkedList(100);
+newLinedList.appendNode(200);
+newLinedList.appendNode(200);
+newLinedList.appendNode(30);
 newLinedList.appendNode(400);
+newLinedList.appendNode(500);
+newLinedList.appendNode(600);
+newLinedList.appendNode(700);
+newLinedList.traversing()
 console.log(newLinedList);
