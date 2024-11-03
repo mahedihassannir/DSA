@@ -41,13 +41,29 @@ class linkedList {
             while (counter < index - 1) {
                 lead = lead.next;
                 counter++
-            }
-            let nextNode = lead.next.next
+            };
+            let nextNode = lead.next.next;
             lead.next = nextNode;
             console.log(lead);
-        }
+        };
 
 
+    };
+    nodeInsertion = (index, value) => {
+
+        let counter = 1;
+        let currentNode = this.head;
+
+        while (counter < index) {
+            counter++
+            currentNode = currentNode.next;
+        };
+        let nextNode = currentNode.next;
+        console.log(nextNode);
+        currentNode.next = {
+            value: value,
+            next: nextNode
+        };
     };
 };
 
@@ -61,7 +77,9 @@ newLinedList.appendNode(600);
 newLinedList.appendNode(700);
 newLinedList.appendNode(800);
 // newLinedList.traversing()
-newLinedList.deleteNode(2)
-newLinedList.deleteNode(5)
+// newLinedList.deleteNode(2)
+// newLinedList.deleteNode(5)
+newLinedList.nodeInsertion(5, 5);
+// newLinedList.nodeInsertion(7, 1000);
 
 console.log(newLinedList);
