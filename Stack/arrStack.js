@@ -1,42 +1,53 @@
-// implemnt stack with array
+// Make a stack with class
 
 class stack {
     constructor() {
         this.stack = [];
     };
+    push(element) {
+        const size = this.stack.length;
+        const limit = 10
 
-    push(value) {
-
-        if (this.stack.length >= 5) {
-            console.log("Stack limit over");
-        }
-        else {
-            this.stack.push(value);
+        if (size >= limit) {
+            return console.log("Stack limit over");
+        } else {
+            this.stack.push(element);
         };
-        console.log(`${value} pushed, current stack: ${this.stack}`);
-
+        return this.stack;
     };
-    pop() {
 
+    pop() {
         if (this.stack.length === 0) {
-            console.log("Stack is empty");
-        }
-        else {
-            let removed = this.stack.pop();
-            console.log(`${removed} popped, current stack: ${this.stack}`);
+            return console.log("Stack already empty");
+        } else {
+            return this.stack.pop();
         };
     };
     peek() {
-        // console.log(this.stack[this.stack.length - 1]);
-        return this.stack[this.stack.length - 1]
+        return this.stack[this.stack.length - 1];
     };
+    size() {
+        return this.stack.length;
+    };
+}
+
+let Stack = new stack();
+
+console.log(Stack.size());
+console.log(Stack.push(10));
+console.log(Stack.push(20));
+console.log(Stack.push(30));
+console.log(Stack.push(40));
+console.log(Stack.push(50));
+console.log(Stack.push(60));
+console.log(Stack.push(70));
+console.log(Stack.push(80));
+console.log(Stack.push(90));
+console.log(Stack.push(100));
+console.log(Stack.pop());
+console.log(Stack.push(110));
+console.log(Stack.peek(),"The peeked");
+console.log(Stack.size());
 
 
-};
-let stacks = new stack();
-stacks.push(10)
-stacks.push(20)
-stacks.push(30)
-stacks.push(40)
-stacks.pop()
-console.log(stacks.peek());
+
