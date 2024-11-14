@@ -20,8 +20,6 @@ class lList {
 
         const newData = new Node(data);
 
-
-
         if (this.tail === null) {
             this.head = this.tail = newData;
         } else {
@@ -32,10 +30,7 @@ class lList {
     };
 
     // iterate over the linked list
-    loop = () => {
-        console.log(this.head);
-        console.log(this.size, "linked list size");
-    };
+
 
     // Insert data in any position
     insert = (value, index) => {
@@ -61,18 +56,67 @@ class lList {
         };
         this.size++
     };
+    insertAtHead = (value) => {
+        const newNode = new Node(value);
 
-    insertatTail(data) {
-        const newNode = new Node(data);
-        this.tail.next = newNode;
-        this.tail = newNode;
+        // console.log(newNode.next = this.head);
+        // console.log(this.head = newNode);
+        newNode.next = this.head;
+        this.head = newNode;
+        return this.head
     };
 
-    remove = (index) => {
+    insertatTail = (value) => {
+        const newNode = new Node(value);
+
+        this.tail.next = newNode;
+        this.tail = newNode;
+
+        return this.tail
 
 
 
+    };
 
+    removeHead = () => {
+        this.head = this.head.next
+
+        return this.head
+
+    };
+
+    removeTail = () => {
+        let current = this.head;
+
+        while (current.next !== this.tail) {
+            current = current.next;
+        }
+        current.next = null;
+        this.tail = current;
+
+        return this.head
+
+    };
+
+    removePosition = (index) => {
+        let current = this.head;
+        for (let i = 0; i < index - 2; i++) {
+            console.log(i);
+            current = current.next;
+        };
+
+        // console.log(current.next);
+
+        current.next = current.next.next;
+
+        return this.head
+
+
+    };
+
+    loop = () => {
+        console.log(this.head);
+        console.log(this.size, "linked list size");
     };
 };
 
@@ -82,5 +126,9 @@ LinkedList.append(20);
 LinkedList.append(30);
 LinkedList.loop();
 LinkedList.insert(400, 2);
-LinkedList.insertatTail(999, 2);
+console.log(LinkedList.insertAtHead(999));
+LinkedList.insertatTail(888, 2);
+console.log(LinkedList.removeHead());
+console.log(LinkedList.removeTail());
+console.log(LinkedList.removePosition(2));
 
