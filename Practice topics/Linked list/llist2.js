@@ -6,8 +6,6 @@ class Node {
     };
 };
 
-
-
 class lList {
     constructor() {
         this.head = null;
@@ -114,13 +112,33 @@ class lList {
 
     };
 
+    reverse() {
+        //Logic is set the node with previous:
+
+        let current = this.head;
+        let previous = null;
+        // loop
+        while (current !== null) {
+
+            let next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+
+
+        };
+        return previous;
+    };
+
+
+
     loop = () => {
         console.log(this.head);
         console.log(this.size, "linked list size");
     };
 };
 
-const LinkedList = new lList()
+const LinkedList = new lList();
 LinkedList.append(10);
 LinkedList.append(20);
 LinkedList.append(30);
@@ -131,4 +149,5 @@ LinkedList.insertatTail(888, 2);
 console.log(LinkedList.removeHead());
 console.log(LinkedList.removeTail());
 console.log(LinkedList.removePosition(2));
+console.log(LinkedList.reverse());
 
