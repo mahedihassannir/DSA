@@ -112,22 +112,47 @@ class lList {
 
     };
 
+    // reverse() {
+    //     //Logic is set the node with previous:
+
+    //     let current = this.head;
+    //     let previous = null;
+    //     // loop
+    //     while (current !== null) {
+
+    //         let next = current.next;
+    //         current.next = previous;
+    //         previous = current;
+    //         current = next;
+
+
+    //     };
+    //     return previous;
+    // };
     reverse() {
         //Logic is set the node with previous:
+        if (this.head === null) {
+            return
+        } else {
 
-        let current = this.head;
-        let previous = null;
-        // loop
-        while (current !== null) {
+            let current = this.head;
+            let prev = null;
 
-            let next = current.next;
-            current.next = previous;
-            previous = current;
-            current = next;
-
+            while (current !== null) {
+                let next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next
+            };
+            console.log(prev);
+            // print reversed
+            let reversed = prev;
+            while (reversed !== null) {
+                console.log(reversed.value);
+                reversed = reversed.next;
+            };
 
         };
-        return previous;
     };
 
 
@@ -149,5 +174,5 @@ LinkedList.insertatTail(888, 2);
 console.log(LinkedList.removeHead());
 console.log(LinkedList.removeTail());
 console.log(LinkedList.removePosition(2));
-console.log(LinkedList.reverse());
+LinkedList.reverse();
 
