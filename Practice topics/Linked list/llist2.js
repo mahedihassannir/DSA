@@ -215,6 +215,30 @@ class lList {
 
     };
 
+    // Return the middle of the linked list provided the head node 
+    findMiddleNode = () => {
+        let current = this.head;
+        let length = 0;
+        while (current !== null) {
+            current = current.next;
+            length++
+        };
+
+
+        // Find the middle of the length
+        let position = Math.floor(length / 2);
+        // let position = length / 2;
+        console.log(position);
+        let node = this.head;
+        for (let i = 0; i < position; i++) {
+            node = node.next;
+        };
+        console.log(node);
+
+        return node;
+
+    };
+
 
     loop = () => {
         console.log(this.head);
@@ -229,12 +253,12 @@ const LinkedList = new lList();
 // LinkedList.append(30);
 1, 3, 4, 7, 1, 2, 6
 LinkedList.append(1);
+LinkedList.append(2);
 LinkedList.append(3);
 LinkedList.append(4);
-LinkedList.append(7);
-LinkedList.append(1);
-LinkedList.append(2);
-LinkedList.append(6);
+LinkedList.append(5);
+// LinkedList.append(6);   
+// LinkedList.append(7);
 // LinkedList.append(5);
 // LinkedList.append(6);
 // LinkedList.append(7);
@@ -247,5 +271,6 @@ LinkedList.append(6);
 // console.log(LinkedList.removePosition(2));
 // LinkedList.reverse();
 // LinkedList.removeElements(7);
-LinkedList.deleteMiddleNode();
+// LinkedList.deleteMiddleNode();
+LinkedList.findMiddleNode();
 
