@@ -156,6 +156,65 @@ class lList {
     };
 
 
+    removeElements(value) {
+        console.log("val", value);
+        if (this.head === null) {
+            return null
+        };
+        // [7,7,7,7]
+        while (this.head !== null && this.head.value === value) {
+            this.head = this.head.next;
+        };
+        let current = this.head;
+        while (current !== null) {
+            if (current.next?.value === value) {
+                current.next = current.next.next
+            } else {
+                current = current.next;
+            };
+            // console.log(current);
+        };
+        // console.log(this.head);
+    };
+
+
+    deleteMiddleNode = () => {
+
+        let current = this.head;
+        let length = 0;
+        while (current !== null) {
+            // console.log(current);
+            current = current.next;
+            length++
+        };
+
+        // remove the mid node;
+
+        let position = Math.floor(length / 2);
+        console.log(position);
+
+        let newCurrent = this.head;
+        let prev = null;
+        for (let i = 0; i < position; i++) {
+            // console.log(position, "delete position");
+            // console.log(newCurrent, "h");
+            prev = newCurrent;
+            newCurrent = newCurrent.next;
+        };
+
+        if (prev) {
+            prev.next = newCurrent.next
+        }
+        else {
+            this.head = this.head.next;
+        }
+        // newCurrent.next = newCurrent.next;
+
+        // return this.head;
+        console.log(this.head);
+
+    };
+
 
     loop = () => {
         console.log(this.head);
@@ -164,15 +223,29 @@ class lList {
 };
 
 const LinkedList = new lList();
-LinkedList.append(10);
-LinkedList.append(20);
-LinkedList.append(30);
-LinkedList.loop();
-LinkedList.insert(400, 2);
-console.log(LinkedList.insertAtHead(999));
-LinkedList.insertatTail(888, 2);
-console.log(LinkedList.removeHead());
-console.log(LinkedList.removeTail());
-console.log(LinkedList.removePosition(2));
-LinkedList.reverse();
+// LinkedList.append(10);
+// LinkedList.append(30);
+// LinkedList.append(20);
+// LinkedList.append(30);
+1, 3, 4, 7, 1, 2, 6
+LinkedList.append(1);
+LinkedList.append(3);
+LinkedList.append(4);
+LinkedList.append(7);
+LinkedList.append(1);
+LinkedList.append(2);
+LinkedList.append(6);
+// LinkedList.append(5);
+// LinkedList.append(6);
+// LinkedList.append(7);
+// LinkedList.append(5);
+// LinkedList.insert(400, 2);
+// console.log(LinkedList.insertAtHead(999));
+// LinkedList.insertatTail(888, 2);
+// console.log(LinkedList.removeHead());
+// console.log(LinkedList.removeTail());
+// console.log(LinkedList.removePosition(2));
+// LinkedList.reverse();
+// LinkedList.removeElements(7);
+LinkedList.deleteMiddleNode();
 
